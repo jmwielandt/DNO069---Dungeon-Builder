@@ -1,12 +1,11 @@
 class Mapa{
   int[][] grilla;
+  JSONArray tiles;
   Mapa(String biome, int w, int h){
     JSONObject bioma = get_biome_info(biome);
-    noiseSeed(time_seed());
+    tiles = bioma.getJSONArray("tiles");
     grilla = new int[w][h];
     vaciar_grilla();
-    //llenar_grilla();
-    
   }
   JSONObject get_biome_info(String biome){
     return loadJSONObject("biomas/" + biome + ".json");
