@@ -1,38 +1,34 @@
-// JSONObject config;
-int tile = 10;
-int[] sky = {0, 200, 255};
-int[] ground = {150, 100, 60};
-int[] rock = {100, 100, 100};
+JSONObject config;
 
-int i, j = 0;
-Mapa mundo;
+void settings(){
+  config = loadJSONObject("config.json");
+  size(config.getInt("tile") * config.getInt("screen_x"),
+       config.getInt("tile") * config.getInt("screen_y"));
+  
+}
 
 void setup(){
-  println("hola mundo");
-  size(300, 300); //tamaño pantalla
   noStroke();
+  noSmooth();
   background(255);
-  loop();
+  fill(0);
+  //noLoop();
   
 }
 
 void draw(){
-  println("hola");
-  mundo = new Mapa(30, 30);
-  // vamos de a poco mejor
-  // paso 2: creando el objeto mapa.
-  
-  for (int i = 0; i < mundo.mapa.length; i++){
-    for (int j = 0; j < mundo.mapa[i].length; j++){
-      if (mundo.mapa[i][j] == 0){
-        fill(sky[0], sky[1], sky[2]);
-      } else if (mundo.mapa[i][j] == 1){
-        fill(ground[0], ground[1], ground[2]);
-      } else{
-        fill(rock[0], rock[1], rock[2]);
-      }
-      rect(i * tile, j * tile, tile, tile);
-    }
+  background(255);
+  noiseSeed(time_seed());
+  int tile = config.getInt("tile");
+  int w = config.getInt("screen_x");
+  int max = 3;
+  int min = -3;
+  int x = 0;
+  int y = 3;
+  for (x = 0; x < w; x++){
+    rect(x*tile, y*tile, tile, tile);
+    y += floor((max - min + 1) * noise(x, y) + min);
+    println(y);
   }
   delay(1000);
 }
