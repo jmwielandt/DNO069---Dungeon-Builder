@@ -1,14 +1,14 @@
-boolean det_block(float rnd, float prob){
-  if (rnd <= prob){
-    return true;
-  } else{
-    return false;
+int det_block(float rnd, int[] posibs,float[] probs){
+  for (int i=0; i < probs.length; i++){
+    if (rnd <= probs[i]){
+      return posibs[i];
+    }
   }
+  return -1;
 }
-
 long time_seed(){
   long result = (millis()
-                + second() * 1000 
+                + second() * 1000
                 + minute() * 60 * 1000
                 + hour() * 3600 * 1000
                 + day() * 24 * 3600 * 1000

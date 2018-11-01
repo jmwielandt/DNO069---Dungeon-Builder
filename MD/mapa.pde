@@ -3,24 +3,31 @@ class Mapa{
   Mapa(int w, int h){
     noiseSeed(time_seed());
     mapa = new int[w][h];
-    float corte;
+    int[] posibs = {0, 1, 2};
+    float[] probs = new float[3];
     float rnd;
     for (int i = 0; i < w; i++){
       for (int j = 0; j < h; j++){
-        rnd = noise(i, j);
-        if (j < 10){
-          corte = 0.7;
+        if (j < 5){
+          probs[0] = 1;
+          probs[1] = 0;
+          probs[2] = 0;
+        } else if (j < 10){
+          probs[0] = 0;
+          probs[1] = 0.7;
+          probs[2] = 1;
         } else if (j < 20){
-          corte = 0.5;
+          probs[0] = 0;
+          probs[1] = 0.5;
+          probs[2] = 1;
         } else{
-          corte = 0.3;
+          probs[0] = 0;
+          probs[1] = 0.3;
+          probs[2] = 1;
         }
-        if (rnd <= corte){
-          mapa[i][j] = 1;
-        } else{
-          mapa[i][j] = 2;
-        }
+        rnd = noise(i, j);
+        mapa[i][j] = det_block(rnd, posibs, probs);
       }
-    }   
+    }
   }
 }

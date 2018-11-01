@@ -1,7 +1,9 @@
 // JSONObject config;
 int tile = 10;
+int[] sky = {0, 200, 255};
 int[] ground = {150, 100, 60};
-int[] rock = {150, 150, 150};
+int[] rock = {100, 100, 100};
+
 int i, j = 0;
 Mapa mundo;
 
@@ -19,9 +21,12 @@ void draw(){
   mundo = new Mapa(30, 30);
   // vamos de a poco mejor
   // paso 2: creando el objeto mapa.
+  
   for (int i = 0; i < mundo.mapa.length; i++){
     for (int j = 0; j < mundo.mapa[i].length; j++){
-      if (mundo.mapa[i][j] == 1){
+      if (mundo.mapa[i][j] == 0){
+        fill(sky[0], sky[1], sky[2]);
+      } else if (mundo.mapa[i][j] == 1){
         fill(ground[0], ground[1], ground[2]);
       } else{
         fill(rock[0], rock[1], rock[2]);
