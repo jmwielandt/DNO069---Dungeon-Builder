@@ -17,8 +17,8 @@
         },
         {
             "id": 2,
-            "nombre": "roca",
-            "rgb": [120, 120, 120],
+            "nombre": "piedra",
+            "rgb": [100, 100, 100],
             "col": true,
             "grav": false
         },
@@ -52,56 +52,39 @@
         },
         {
             "id": 7,
-            "nombre": "tronco",
-            "rgb": [213, 189, 60],
-            "col": false,
-            "grav": true
-        },
-        {
-            "id": 8,
             "nombre": "raíces",
             "rgb": [116, 91, 35],
             "col": true,
             "grav": false
         },
         {
-            "id": 9,
-            "nombre": "roca dura",
-            "rgb": [70, 70, 70],
-            "col": true,
-            "grav": false
+            "id": 8,
+            "nombre": "tronco",
+            "rgb": [213, 189, 60],
+            "col": false,
+            "grav": true
         }
     ],
     "capas": [
         {
-            "end": 2,
+            "end_r": [2, 10],
             "tiles": [0],
             "probs": [1]
         },
         {
-            "end": 4,
+            "end_r": [12, 16],
             "tiles": [1, 2],
-            "probs": [0.7, 1]
+            "probs": [0.7, 0.3]
         },
         {
-            "end": 7,
-            "tiles": [1, 2],
-            "probs": [0.5, 1]
+            "end_r": [26, 34],
+            "tiles": [1, 2, 3],
+            "probs": [0.35, 0.6, 0.05]
         },
         {
-            "end": 12,
-            "tiles": [1, 2],
-            "probs": [0.3, 1]
-        },
-        {
-            "end": 27,
-            "tiles": [2, 9],
-            "probs": [0.75, 1]
-        },
-        {
-            "end": 49,
-            "tiles": [2, 9, 3],
-            "probs": [0.1, 0.9, 1]
+            "end_r": [50, 50],
+            "tiles": [1, 2, 3, 4],
+            "probs": [0.01, 0.85, 0.1, 0.04]
         }
     ]
 }

@@ -1,4 +1,4 @@
-int det_bloque(float rnd, int[] posibs,float[] probs){
+int det_block(float rnd, int[] posibs,float[] probs){
   for (int i=0; i < probs.length; i++){
     if (rnd <= probs[i]){
       return posibs[i];

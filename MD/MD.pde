@@ -9,20 +9,16 @@ void settings(){
 }
 
 void setup(){
-  noStroke();
+  //noStroke();
   noSmooth();
-  background(255);
-  fill(0);
-  int[][] a = {{1, 2}, {3}};
-  for (int[] i : a){
-    println(i);
-  }
-  mundo = new Mapa("bosque", 16, 9); 
-  frameRate(60);
+  mundo = new Mapa("bosque", config.getInt("screen_x"), config.getInt("screen_y")); 
+  //frameRate(60);
+  noLoop();
 }
 
 void draw(){
   background(255);
+  
   for (int i=0; i < mundo.grilla.length; i++){
     for (int j=0; j < mundo.grilla[i].length; j++){
       int aux = mundo.grilla[i][j];
@@ -32,33 +28,6 @@ void draw(){
         fill(rgb[0], rgb[1], rgb[2]);
         rect(i*config.getInt("tile"), j*config.getInt("tile"), config.getInt("tile"), config.getInt("tile")); 
       }
-    }
-  }
-}
-
-void mousePressed(){
-  if (floor(mouseX/config.getInt("tile")) >= 0 && floor(mouseX/config.getInt("tile")) < config.getInt("screen_x")
-      && floor(mouseY/config.getInt("tile")) >= 0 && floor(mouseY/config.getInt("tile")) < config.getInt("screen_y")){
-        
-        if (mouseButton == LEFT){
-          mundo.grilla[floor(mouseX/config.getInt("tile"))][floor(mouseY/config.getInt("tile"))] += 1;
-        }else if(mouseButton == RIGHT){
-          mundo.grilla[floor(mouseX/config.getInt("tile"))][floor(mouseY/config.getInt("tile"))] -= 1;
-        }
-      }
-}
-void mouseDragged(){
-  if (floor(mouseX/config.getInt("tile")) >= 0 && floor(mouseX/config.getInt("tile")) < config.getInt("screen_x")
-      && floor(mouseY/config.getInt("tile")) >= 0 && floor(mouseY/config.getInt("tile")) < config.getInt("screen_y")){
-    if (floor(mouseX/config.getInt("tile")) != floor(pmouseX/config.getInt("tile")) 
-        || floor(mouseY/config.getInt("tile")) != floor(pmouseY/config.getInt("tile"))){
-          
-      
-      if (mouseButton == LEFT){
-          mundo.grilla[floor(mouseX/config.getInt("tile"))][floor(mouseY/config.getInt("tile"))] += 1;
-        }else if(mouseButton == RIGHT){
-          mundo.grilla[floor(mouseX/config.getInt("tile"))][floor(mouseY/config.getInt("tile"))] -= 1;
-        }
     }
   }
 }
