@@ -40,7 +40,7 @@ void draw(){
     }
   }
   fill(mundo.jug.c);
-  rect(mundo.jug.x, mundo.jug.y, mundo.jug.wid, mundo.jug.hei);
+  rect(mundo.jug.cajita.x, mundo.jug.cajita.y, mundo.jug.cajita.w, mundo.jug.cajita.h);
   
 }
 
@@ -50,5 +50,6 @@ void keyPressed(){
 }
 
 void keyReleased(){
+  println("b");
   copeKeys(false);
 }
