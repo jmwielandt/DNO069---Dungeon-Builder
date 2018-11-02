@@ -1,7 +1,13 @@
 JSONObject config;
-Mapa mundo;
+Mundo mundo;
+int[] keys_check = {87, 83, 65, 68, 32};
+boolean[] keys_down = new boolean[keys_check.length];
+
 
 void settings(){
+  boolean[] a = {true, false};
+  boolean[] b = {true, false};
+  println(equals(a, b));
   config = loadJSONObject("config.json");
   size(config.getInt("tile") * config.getInt("screen_x"),
        config.getInt("tile") * config.getInt("screen_y"));
@@ -9,25 +15,40 @@ void settings(){
 }
 
 void setup(){
-  //noStroke();
-  noSmooth();
-  mundo = new Mapa("bosque", config.getInt("screen_x"), config.getInt("screen_y")); 
-  //frameRate(60);
-  noLoop();
+  noStroke();
+  mundo = new Mundo("nivel", 15, 17, 
+                    1 * config.getInt("tile"), 
+                    15 * config.getInt("tile") + 10, 
+                    config.getInt("tile"), 
+                    config.getInt("tile") - 10);
+  frameRate(60);
+  //noLoop();
+  
 }
 
 void draw(){
+  update();
   background(255);
-  
-  for (int i=0; i < mundo.grilla.length; i++){
-    for (int j=0; j < mundo.grilla[i].length; j++){
-      int aux = mundo.grilla[i][j];
-      if (aux >= 0 && aux < mundo.tiles.size()){
-        JSONObject bloque = mundo.tiles.getJSONObject(mundo.grilla[i][j]);
-        int[] rgb = bloque.getJSONArray("rgb").getIntArray();
-        fill(rgb[0], rgb[1], rgb[2]);
-        rect(i*config.getInt("tile"), j*config.getInt("tile"), config.getInt("tile"), config.getInt("tile")); 
+  fill(0);
+  int aux = config.getInt("tile");
+  for (int i=0; i < mundo.mapa.grilla.length; i++){
+    //println(mundo.grilla[i]);
+    for (int j=0; j < mundo.mapa.grilla[i].length; j++){
+      if (mundo.mapa.grilla[i][j] == 1){
+        rect(i*aux, j*aux, aux, aux);
       }
     }
   }
+  fill(mundo.jug.c);
+  rect(mundo.jug.x, mundo.jug.y, mundo.jug.wid, mundo.jug.hei);
+  
+}
+
+void keyPressed(){
+  println(keyCode);
+  copeKeys(true);
+}
+
+void keyReleased(){
+  copeKeys(false);
 }

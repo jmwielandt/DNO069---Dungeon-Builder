@@ -1,18 +1,19 @@
-int det_bloque(float rnd, int[] posibs,float[] probs){
-  for (int i=0; i < probs.length; i++){
-    if (rnd <= probs[i]){
-      return posibs[i];
+void copeKeys(boolean state){
+  for (int i=0; i < keys_check.length; i++){
+    if (keys_check[i] == keyCode){
+      keys_down[i] = state;
     }
   }
-  return -1;
 }
-long time_seed(){
-  long result = (millis()
-                + second() * 1000
-                + minute() * 60 * 1000
-                + hour() * 3600 * 1000
-                + day() * 24 * 3600 * 1000
-                + month() * 31 * 24 * 3600 * 1000
-                + year() * 12 * 31 * 24 + 3600 * 1000);
-  return result;
+
+boolean equals(boolean[] a, boolean[] b){
+  if (a.length != b.length){
+    return false;
+  } else{
+    boolean r = true;
+    for (int i = 0; i < a.length; i++){
+      r = r && (a[i] == b[i]);
+    }
+    return r;
+  }
 }
