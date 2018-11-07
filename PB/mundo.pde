@@ -5,7 +5,16 @@ class Mundo{
   
   Mundo(String file, int w, int h, float x, float y, int wid, int hei){
     mapa = new Mapa(file, w, h);
-    jug = new Entidad(x, y, wid, hei, color(0, 0, 255));
+    jug = new Entidad(x, y, wid, hei, color(0, 255, 0));
     //
   }
+  
+  void hay_caida(){
+    if(jug.hit.y + jug.hit.h < height){
+      jug.cayendo = true;
+    } else{
+      jug.cayendo = false;
+    }
+  }
+  
 }

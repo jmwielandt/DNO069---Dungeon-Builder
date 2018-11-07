@@ -1,55 +1,43 @@
-JSONObject config;
+Config config;
 Mundo mundo;
 int[] keys_check = {87, 83, 65, 68, 32};
 boolean[] keys_down = new boolean[keys_check.length];
-
+boolean caps;
 
 void settings(){
-  boolean[] a = {true, false};
-  boolean[] b = {true, false};
-  println(equals(a, b));
-  config = loadJSONObject("config.json");
-  size(config.getInt("tile") * config.getInt("screen_x"),
-       config.getInt("tile") * config.getInt("screen_y"));
-  
+  JSONObject aux_c = loadJSONObject("config.json");
+  config = new Config(aux_c.getInt("tile"), aux_c.getInt("screen_x"), aux_c.getInt("screen_y"), aux_c.getFloat("zoom"));
+  size(config.tile * config.screen_x, config.tile * config.screen_y);
 }
 
 void setup(){
+  mundo = new Mundo("nivel2", 15, 17, 45, 45, 30, 30);
   noStroke();
-  mundo = new Mundo("nivel", 15, 17, 
-                    1 * config.getInt("tile"), 
-                    15 * config.getInt("tile") + 10, 
-                    config.getInt("tile"), 
-                    config.getInt("tile") - 10);
   frameRate(60);
-  //noLoop();
-  
 }
 
 void draw(){
   update();
   background(255);
   fill(0);
-  int aux = config.getInt("tile");
   for (int i=0; i < mundo.mapa.grilla.length; i++){
-    //println(mundo.grilla[i]);
     for (int j=0; j < mundo.mapa.grilla[i].length; j++){
       if (mundo.mapa.grilla[i][j] == 1){
-        rect(i*aux, j*aux, aux, aux);
+        rect(i*config.tile, j*config.tile, config.tile, config.tile);
       }
     }
   }
   fill(mundo.jug.c);
-  rect(mundo.jug.cajita.x, mundo.jug.cajita.y, mundo.jug.cajita.w, mundo.jug.cajita.h);
+  rect(mundo.jug.hit.x, mundo.jug.hit.y, mundo.jug.hit.w, mundo.jug.hit.h);
   
 }
 
 void keyPressed(){
-  println(keyCode);
+  //println(key);
+  //caps = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
   copeKeys(true);
 }
 
 void keyReleased(){
-  println("b");
   copeKeys(false);
 }
