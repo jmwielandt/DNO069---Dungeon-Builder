@@ -1,6 +1,6 @@
 {
-    "tile": 64,
-    "screen_x": 4,
-    "screen_y": 4,
+    "tile": 32,
+    "screen_x": 8,
+    "screen_y": 8,
     "zoom": 1
 }

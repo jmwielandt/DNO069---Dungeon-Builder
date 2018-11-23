@@ -1,8 +1,6 @@
 Config config;
 Mundo mundo;
-int[] keys_check = {87, 83, 65, 68, 32};
-boolean[] keys_down = new boolean[keys_check.length];
-boolean caps;
+
 
 void settings(){
   JSONObject aux_c = loadJSONObject("config.json");
@@ -35,9 +33,10 @@ void draw(){
 void keyPressed(){
   //println(key);
   //caps = Toolkit.getDefaultToolkit().getLockingKeyState(KeyEvent.VK_CAPS_LOCK);
-  copeKeys(true);
+  mundo.keyDown();
 }
 
 void keyReleased(){
-  copeKeys(false);
+  //println("hola");
+  mundo.keyUp();
 }
