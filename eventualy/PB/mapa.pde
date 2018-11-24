@@ -3,8 +3,8 @@ class Mapa{
   
   Mapa(String file, int w, int h){
     JSONArray arch = get_map(file);
-    grilla = new int[w][h];
-    llenar_grilla(arch);
+    this.grilla = new int[w][h];
+    this.llenar_grilla(arch);
   }
   
   JSONArray get_map(String file){
@@ -14,9 +14,8 @@ class Mapa{
   void llenar_grilla(JSONArray cargado){
     for (int i=0; i < cargado.size(); i++){
       JSONArray aux = cargado.getJSONArray(i);
-      //println(aux);
       for (int j=0; j < aux.size(); j++){
-        grilla[j][i] = aux.getInt(j);  //lo transpuse sin darme cuenta al hacer el json
+        this.grilla[i][j] = aux.getInt(j);  //lo transpuse sin darme cuenta al hacer el json
       }
     }
   }

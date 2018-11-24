@@ -22,7 +22,7 @@ void update(){
   //println(keys_down[0], keys_down[1], keys_down[2], keys_down[3]);
   // puedo tener varios "true" al mismo tiempo, es bueno saberlo.
   if (keys_down[4] && !mundo.jug.cayendo){
-    mundo.jug.speed_y = -11;
+    mundo.jug.speed_y = -8;
   }
   if (!keys_down[0] && !keys_down[1] && !keys_down[2] && keys_down[3]){  // derecha
     mundo.jug.speed_x = mundo.speed;

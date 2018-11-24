@@ -1,4 +1,10 @@
-
+void copeKeys(boolean state){
+  for (int i=0; i < keys_check.length; i++){
+    if (keys_check[i] == keyCode){
+      keys_down[i] = state;
+    }
+  }
+}
 
 boolean equals(boolean[] a, boolean[] b){
   if (a.length != b.length){

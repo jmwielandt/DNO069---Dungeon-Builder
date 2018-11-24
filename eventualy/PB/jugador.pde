@@ -6,13 +6,13 @@ class Entidad{
   color c;
   
   Entidad(float x_, float y_, int w_, int h_, color c_){
-    hit = new HitBox(x_, y_, w_, h_);  //la hitbox
-    c = c_;  // color
+    this.hit = new HitBox(x_, y_, w_, h_);  //la hitbox
+    this.c = c_;  // color
     
   }
   
   void move(){
-    hit.move(speed_x, speed_y);
+    this.hit.move(speed_x, speed_y);
   }
   
 }
