@@ -22,8 +22,18 @@ class Juego:
         self.keys[keyCode] = st
     
     def update(self):
+        
+        self.jug.hay_caida()
+        # print(self.jug.cayendo)
+        # print(self.jug.coords()[2])
+        
         self.jug.speed_x = f.prox_zero(self.jug.speed_x, p.ROCE)
-        self.jug.speed_y = f.prox_zero(self.jug.speed_y, p.ROCE)
+        ##self.jug.speed_y = f.prox_zero(self.jug.speed_y, p.ROCE)
+        if self.jug.cayendo:
+            self.jug.speed_y += p.GRAV
+        else:
+            self.jug.speed_y = 0
+        
         
         ## CONTINUAR
         if (self.keys[p.IZQUIERDA] and not self.keys[p.DERECHA]):

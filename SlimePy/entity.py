@@ -12,6 +12,19 @@ class HitBox:
         self.pg = parent_grid
         self.mapx = mapx
         self.mapy = mapy
+        self.cayendo = False
+    
+    def hay_caida(self):
+        if (self.y + self.h) % p.TILE == 0:
+            pos = self.coords()
+            if pos[2][1] == self.mapy - 1:
+                self.cayendo = False
+            elif self.pg[pos[2][0]][pos[2][1] + 1] == 1 or self.pg[pos[3][0]][pos[3][1] + 1] == 1:
+                self.cayendo = False
+            else:
+                self.cayendo = True
+        else:
+            self.cayendo = True
     
     def coords(self):
         return ((floor(self.x/p.TILE), floor(self.y/p.TILE)),
