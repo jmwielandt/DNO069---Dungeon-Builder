@@ -72,7 +72,7 @@ class HitBox
           int aux4 = jue.grilla[pos[1][0]][pos[1][1] - 1];
           int aux5 = jue.grilla[pos[0][0] - 1][pos[0][1] - 1];
           
-          if (aux1 == 0 && aux2 == 0 && aux3 == 0 && aux4 == 0 && aux5 == 1 && pos[0][0] != npos[0][0] && pos[0][1] != npos[0][1]){
+          if (!jue.ts.tiles[aux1].colide && !jue.ts.tiles[aux2].colide && !jue.ts.tiles[aux3].colide && !jue.ts.tiles[aux4].colide && jue.ts.tiles[aux5].colide && pos[0][0] != npos[0][0] && pos[0][1] != npos[0][1]){
             this.vel_y = max(this.vel_y, pos[0][1] * tile - this.y);
             println("desvío!1");
           }
@@ -85,7 +85,7 @@ class HitBox
           int aux3 = jue.grilla[pos[0][0]][pos[0][1] - 1];
           int aux4 = jue.grilla[pos[1][0]][pos[1][1] - 1];
           int aux5 = jue.grilla[pos[1][0]  + 1][pos[1][1] - 1];
-          if (aux1 == 0 && aux2 == 0 && aux3 == 0 && aux4 == 0 && aux5 == 1 && pos[1][0] != npos[1][0] && pos[1][1] != npos[1][1]){
+          if (!jue.ts.tiles[aux1].colide && !jue.ts.tiles[aux2].colide && !jue.ts.tiles[aux3].colide && !jue.ts.tiles[aux4].colide && jue.ts.tiles[aux5].colide && pos[1][0] != npos[1][0] && pos[1][1] != npos[1][1]){
             this.vel_y = max(this.vel_y, pos[0][1] * tile - this.y);
             println("desvío2!");
           }
@@ -100,7 +100,7 @@ class HitBox
           int aux3 = jue.grilla[pos[2][0]][pos[2][1] + 1];
           int aux4 = jue.grilla[pos[3][0]][pos[3][1] + 1];
           int aux5 = jue.grilla[pos[2][0] - 1][pos[2][1] + 1];
-          if(aux1 == 0 && aux2 == 0 && aux3 == 0 && aux4 == 0 && aux5 == 1 && pos[2][0] != npos[2][0] && pos[2][1] != npos[2][1]){
+          if(!jue.ts.tiles[aux1].colide && !jue.ts.tiles[aux2].colide && !jue.ts.tiles[aux3].colide && !jue.ts.tiles[aux4].colide && jue.ts.tiles[aux5].colide && pos[2][0] != npos[2][0] && pos[2][1] != npos[2][1]){
             this.vel_y = min(this.vel_y, (pos[2][1] + 1) * tile - (this.y + this.h));
             println("\t desvío 3!");
           }
@@ -113,7 +113,7 @@ class HitBox
           int aux3 = jue.grilla[pos[2][0]][pos[2][1] + 1];
           int aux4 = jue.grilla[pos[3][0]][pos[3][1] + 1];
           int aux5 = jue.grilla[pos[3][0] + 1][pos[3][1] + 1];
-          if (aux1 == 0 && aux2 == 0 && aux3 == 0 && aux4 == 0 && aux5 == 1 && pos[3][0] != npos[3][0] && pos[3][1] != npos[3][1]){
+          if (!jue.ts.tiles[aux1].colide && !jue.ts.tiles[aux2].colide && !jue.ts.tiles[aux3].colide && !jue.ts.tiles[aux4].colide && jue.ts.tiles[aux5].colide && pos[3][0] != npos[3][0] && pos[3][1] != npos[3][1]){
             this.vel_y = min(this.vel_y, (pos[2][1] + 1) * tile - (this.y + this.h));
             println("\t\t\tdesvío 4");
           }
@@ -131,7 +131,7 @@ class HitBox
         } else{
             int aux1 = jue.grilla[pos[0][0] - 1][pos[0][1]];
             int aux2 = jue.grilla[pos[2][0] - 1][pos[2][1]];
-            if (aux1 == 1 || aux2 == 1){
+            if (jue.ts.tiles[aux1].colide || jue.ts.tiles[aux2].colide){
               this.vel_x = max(this.vel_x, pos[0][0] * tile - this.x);
             }
           }
@@ -141,7 +141,7 @@ class HitBox
           } else{
             int aux1 = jue.grilla[pos[1][0] + 1][pos[1][1]];
             int aux2 = jue.grilla[pos[3][0] + 1][pos[3][1]];
-            if (aux1 == 1 || aux2 == 1){
+            if (jue.ts.tiles[aux1].colide || jue.ts.tiles[aux2].colide){
               this.vel_x = min(this.vel_x, (pos[1][0] + 1) * tile - (this.x + this.w));
             }
           }
@@ -155,7 +155,7 @@ class HitBox
         } else{
             int aux1 = jue.grilla[pos[0][0]][pos[0][1] - 1];
             int aux2 = jue.grilla[pos[1][0]][pos[1][1] - 1];
-            if (aux1 == 1 || aux2 == 1){
+            if (jue.ts.tiles[aux1].colide || jue.ts.tiles[aux2].colide){
               this.vel_y = max(this.vel_y, pos[0][1] * tile - this.y);
             }
           }
@@ -165,7 +165,7 @@ class HitBox
           } else{
             int aux1 = jue.grilla[pos[2][0]][pos[2][1] + 1];
             int aux2 = jue.grilla[pos[3][0]][pos[3][1] + 1];
-            if (aux1 == 1 || aux2 == 1){
+            if (jue.ts.tiles[aux1].colide || jue.ts.tiles[aux2].colide){
               this.vel_y = min(this.vel_y, (pos[2][1] + 1) * tile - (this.y + this.h));
             }
           }
@@ -175,11 +175,23 @@ class HitBox
     this.x += this.vel_x;
     this.y += this.vel_y;
     
-    this.vel_x = prox_to_zero(this.vel_x, ROCE);
-    this.vel_y = prox_to_zero(this.vel_y, ROCE);
+    float roce = 0;
+    
+    for (int h = 0; h < pos.length; h++){
+      if (jue.grilla[pos[h][0]][pos[h][1]] != HIELO){
+        roce += ROCE;
+      } else{
+        roce += ROCE_h;
+      }
+    }
+    
+    roce = roce / 4;
+    
+    this.vel_x = prox_to_zero(this.vel_x, roce);
+    this.vel_y = prox_to_zero(this.vel_y, roce);
     
     // Controlador de los bordes del mapa
-    
+    //println(this.x, this.y, jue.h);
     if (this.x < 0)
     {
       this.x = 0;
@@ -195,6 +207,7 @@ class HitBox
     } 
     else if (this.y > jue.h * tile - this.h)
     {
+      //println("holi");
       this.y = jue.h * tile - this.h;
     }
   }
