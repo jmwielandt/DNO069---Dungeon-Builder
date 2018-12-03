@@ -16,6 +16,8 @@ void update(){
   
   jug.move();
   //println(jug.vel_x, jug.vel_y);
+  jug.update_stage();
+  jug.update_face();
 }
 
 float prox_to_zero(float a, float b){

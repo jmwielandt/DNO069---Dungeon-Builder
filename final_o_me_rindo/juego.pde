@@ -1,7 +1,7 @@
 class Juego extends Mapa{
-  int[] keys = {65, 68, 87, 83};
+  int[] keys = {65, 68, 87, 83, 32};
   // a, d, w, s, " ".
-  boolean[] kp = {false, false, false, false};
+  boolean[] kp = {false, false, false, false, false};
   // izquierda, derecha, arriba, abajo
   
   Juego(int w, int h){
@@ -13,6 +13,16 @@ class Juego extends Mapa{
       if (this.keys[i] == keyCode){
         this.kp[i] = state;
       }
+    }
+  }
+  
+  void block(int x, int y){
+    int aux = this.grilla[x][y];
+    if (this.kp[4]){
+      // colocar
+      
+    } else{
+      // romper
     }
   }
   

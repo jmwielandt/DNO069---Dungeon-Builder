@@ -5,7 +5,7 @@ Jugador jug;
 
 
 void settings(){
-  fullScreen();
+  //fullScreen();
   size(SCR_W * tile, SCR_H * tile, P2D);
   //noSmooth();
   
@@ -20,10 +20,12 @@ void setup(){
   
   //tint();
   jue = new Juego(W_TILES, H_TILES);
-  jug = new Jugador(5, 4, TAM, TAM);
   frameRate(FRAMES);
   //println(width, height);
   tile = min(width / SCR_W, height / SCR_H);
+  TAM = tile / OTILE * OCHARA;
+  jug = new Jugador(5, 4, TAM, TAM);
+  println(tile);
 }
 
 void draw(){
@@ -41,4 +43,10 @@ void keyPressed(){
 
 void keyReleased(){
   jue.cope(false);
+}
+
+void mousePressed(){
+  int x = mouseX / tile;
+  int y = mouseY / tile;
+  
 }

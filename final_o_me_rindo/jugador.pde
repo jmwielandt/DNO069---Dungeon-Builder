@@ -1,16 +1,53 @@
 class Jugador extends HitBox
 {
   color me = color(0, 255, 200);
+  PImage[][] faces;
+  int mod = 0;
+  int stage = 0;
+  int face = 1;
   
   Jugador(int x, int y, int w, int h)
   {
     super(x * tile, y * tile, w, h);
+    println(tile);
+    JSONObject aux = loadJSONObject("chara.json");
+    this.mod = FRAMES / 2;
+    JSONArray daux = aux.getJSONArray("up");
+    this.faces = new PImage[4][daux.size()];
+    this.faces[0][0] = loadImage(daux.getString(0));
+    this.faces[0][1] = loadImage(daux.getString(1));
+    daux = aux.getJSONArray("down");
+    this.faces[1][0] = loadImage(daux.getString(0));
+    this.faces[1][1] = loadImage(daux.getString(1));
+    daux = aux.getJSONArray("left");
+    this.faces[2][0] = loadImage(daux.getString(0));
+    this.faces[2][1] = loadImage(daux.getString(1));
+    daux = aux.getJSONArray("right");
+    this.faces[3][0] = loadImage(daux.getString(0));
+    this.faces[3][1] = loadImage(daux.getString(1));
   }
+  
+  void update_stage(){
+    this.stage = (frameCount % FRAMES) / this.mod;
+  }
+  
+  void update_face(){
+    if (this.vel_x < 0){
+      this.face = 2;
+    } else if (this.vel_x > 0){
+      this.face = 3;
+    } else if (this.vel_y < 0){
+      this.face = 0;
+    } else if (this.vel_y > 0){
+      this.face = 1;
+    }
+  }
+      
   
   void draw()
   {
-    fill(this.me);
-    rect(this.x, this.y, this.w, this.h);
+    //fill(this.me);
+    image(this.faces[this.face][this.stage], this.x, this.y, this.w, this.h);
   }
 }
 

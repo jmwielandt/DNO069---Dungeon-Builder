@@ -1,4 +1,7 @@
 int tile = 48;
+int OTILE = 16;
+int OCHARA = 14;
+
 int W_TILES = 13;
 int H_TILES = 9;
 int SCR_W = 16;  // por ahora y quizás hasta siempre
@@ -13,6 +16,6 @@ float ROCE_h = 0.1;
 int HIELO = 3;
 
 
-String PRIMER_NIVEL = "mapas/map1.json";
+String PRIMER_NIVEL = "mapas/map2.json";
 
 // https://twitter.com/kusasugiruneko/status/1068803173102497792
