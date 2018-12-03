@@ -1,0 +1,67 @@
+[
+	{
+		"id": 0,
+		"name": "agua",
+		"colide": true,
+		"frames": ["agua1.png", "agua2.png"],
+		"breakable": false,
+		"reemplazable": false
+	},
+	{
+		"id": 1,
+		"name": "bloque normal",
+		"colide": true,
+		"frames": ["bloquenormal1.png", "bloquenormal2.png"],
+		"breakable": true,
+		"reemplazable": false
+	},
+	{
+		"id": 2,
+		"name": "fuego",
+		"colide": false,
+		"frames": ["fuego1.png", "fuego2.png"],
+		"breakable": false,
+		"reemplazable": false
+	},
+	{
+		"id": 3,
+		"name": "hielo",
+		"colide": false,
+		"roce": 0.2,
+		"frames": ["hielo1.png", "hielo2.png"],
+		"breakable": false,
+		"reemplazable": false
+	},
+	{
+		"id": 4,
+		"name": "inamovible",
+		"colide": true,
+		"frames": ["inamovible1.png", "inamovible2.png"],
+		"breakable": false,
+		"reemplazable": false
+	},
+	{
+		"id": 5,
+		"name": "piso azul",
+		"colide": false,
+		"frames": ["pisoazul.png"],
+		"breakable": false,
+		"reemplazable": true
+	},
+	{
+		"id": 6,
+		"name": "piso rojo",
+		"colide": false,
+		"frames": ["pisorojo.png"],
+		"breakable": false,
+		"reemplazable": true
+	},
+	{
+		"id": 7,
+		"name": "piso verde",
+		"colide": false,
+		"frames": ["pisoverde.png"],
+		"breakable": false,
+		"reemplazable": true
+	}
+]
