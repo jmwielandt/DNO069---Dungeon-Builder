@@ -22,6 +22,8 @@ CallbackListener cb6;
 
 String title = "Press F to Pay Respects"; // título provisional
 
+PImage victoria;
+
 boolean paused = true;
 boolean win = false;
 int screen = 0;
@@ -43,6 +45,7 @@ void setup(){
   // no funciona con los distintos modos de renderizado de imágenes y demás :face_palm:
   //noStroke();
   textSize(40);
+  victoria = loadImage("assets/victoria.png");
   F = loadImage("assets/carátula.jpg");
   tile = min(width / SCR_W, height / SCR_H);
   TAM = tile / OTILE * OCHARA;
@@ -161,8 +164,9 @@ void draw(){
     jug.draw();
     
     if (win){
-      fill(255, 0, 255);
-      text("VICTORIA", width / 3, height / 2);
+      image(victoria, 4 * tile, 3 * tile, 5 * tile, 3 * tile);
+      //fill(255, 0, 255);
+      //text("VICTORIA", width / 3, height / 2);
     }
   }
 }
