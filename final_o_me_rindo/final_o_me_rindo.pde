@@ -29,7 +29,7 @@ Jugador jug;
 
 
 void settings(){
-  //fullScreen();
+  fullScreen();
   size(SCR_W * tile, SCR_H * tile, P2D);  
 }
 
@@ -39,7 +39,10 @@ void setup(){
   // por un bug de processing que por alguna razón lleva desde el 2014 o antes, noSmooth()
   // no funciona con los distintos modos de renderizado de imágenes y demás :face_palm:
   //noStroke();
-
+  textSize(40);
+  tile = min(width / SCR_W, height / SCR_H);
+  TAM = tile / OTILE * OCHARA;
+  
   cp5 = new ControlP5(this);
   
   cb1 = new CallbackListener(){
@@ -136,9 +139,7 @@ void setup(){
   but5.hide();
   but6.hide();
   */
-  textSize(40);
-  tile = min(width / SCR_W, height / SCR_H);
-  TAM = tile / OTILE * OCHARA;
+  
   jue = new Juego(W_TILES, H_TILES, PRIMER_NIVEL);
   jug = new Jugador(5, 4, TAM, TAM);
   frameRate(FRAMES);
