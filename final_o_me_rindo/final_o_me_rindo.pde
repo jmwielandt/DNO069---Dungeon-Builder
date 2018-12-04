@@ -21,6 +21,7 @@ CallbackListener cb6;
 String title = "Dungeon Builder"; // título provisional
 
 boolean paused = true;
+boolean win = false;
 int screen = 0;
 // 1: game, 0: main menu
 
@@ -154,6 +155,11 @@ void draw(){
     update();
     jue.draw();
     jug.draw();
+    
+    if (win){
+      fill(255, 0, 255);
+      text("VICTORIA", width / 3, height / 2);
+    }
   }
 }
 

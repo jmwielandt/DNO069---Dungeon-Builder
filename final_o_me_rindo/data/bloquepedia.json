@@ -107,5 +107,14 @@
         "breakable": false,
         "reemplazable": false,
         "speed": 1
+    },
+    {
+        "id": 12,
+        "name": "finish!",
+        "colide": false,
+        "frames": ["finish.png"],
+        "breakable": false,
+        "reemplazable": false,
+        "speed": 2
     }
 ]

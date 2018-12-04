@@ -10,6 +10,7 @@ int FRAMES = 60;
 
 int[] init = {5, 4};
 
+int FINISH = 12;
 int TAM = 30;
 float SPEED = 5;
 float ROCE = 0.5;

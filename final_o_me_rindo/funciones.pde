@@ -1,10 +1,13 @@
 void reset_level(){
+  paused = false;
+  win = false;
   jue = new Juego(W_TILES, H_TILES, nivel_actual);
   jug = new Jugador(init[0], init[1], TAM, TAM);
 }
 
 void back_menu(){
   paused = true;
+  win = false;
   screen = 0;
   but1.hide();
   but2.hide();
@@ -72,6 +75,10 @@ void update(){
     jug.move();
     jug.update_stage();
     jug.update_face();
+    if (f()){
+      paused = true;
+      win = true;
+    }
   }
 }
 
@@ -91,6 +98,14 @@ float avg_speed(){
     spd += jue.ts.tiles[jue.grilla[pos[i][0]][pos[i][1]]].speed * SPEED / 2;
   }
   return spd / 4;
-  
-  
+}
+
+boolean f(){
+  int[][] pos = jug.coords(jug.x, jug.y);
+  for (int i = 0; i < pos.length; i++){
+    if (jue.grilla[pos[i][0]][pos[i][1]] == FINISH){
+      return true;
+    }
+  }
+  return false;
 }
