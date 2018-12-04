@@ -108,6 +108,7 @@ class Tile{
   boolean breakable;
   boolean reemplazable;
   PImage[] frames;
+  int speed;
   int mod;
   
   Tile(JSONObject aaa){
@@ -116,6 +117,7 @@ class Tile{
     this.colide = aaa.getBoolean("colide");
     this.breakable = aaa.getBoolean("breakable");
     this.reemplazable = aaa.getBoolean("reemplazable");
+    this.speed = aaa.getInt("speed");
     JSONArray aux = aaa.getJSONArray("frames");
     this.frames = new PImage[aux.size()];
     for (int i=0; i<frames.length; i++){

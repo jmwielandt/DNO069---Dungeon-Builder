@@ -13,7 +13,7 @@ int[] init = {5, 4};
 int TAM = 30;
 float SPEED = 5;
 float ROCE = 0.5;
-float ROCE_h = 0.1;
+float ROCE_h = 0.05;
 int HIELO = 3;
 
 int VOID_BLOCK = 8;
@@ -23,5 +23,6 @@ int MAXLENCOLABLOQUES = 5;
 
 String PRIMER_NIVEL = "mapas/map1.json";
 String SEGUNDO_NIVEL = "mapas/map2.json";
+String TERCER_NIVEL = "mapas/map3.json";
 
 // https://twitter.com/kusasugiruneko/status/1068803173102497792

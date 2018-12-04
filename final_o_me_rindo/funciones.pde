@@ -43,7 +43,7 @@ void jugar_nivel_2(){
 void jugar_nivel_3(){
   paused = false;
   screen = 1;
-  nivel_actual = PRIMER_NIVEL;
+  nivel_actual = TERCER_NIVEL;
   but3.hide();
   but4.hide();
   but5.hide();
@@ -57,15 +57,16 @@ void jugar_nivel_3(){
 
 void update(){
   if (!paused){
+    float spd = avg_speed();
     if (jue.kp[0] && !jue.kp[1]){
-      jug.vel_x = -SPEED;
+      jug.vel_x = -spd;
     } else if (!jue.kp[0] && jue.kp[1]){
-      jug.vel_x = SPEED;
+      jug.vel_x = spd;
     }
     if (jue.kp[2] && ! jue.kp[3]){
-      jug.vel_y = -SPEED;
+      jug.vel_y = -spd;
     } else if (!jue.kp[2] && jue.kp[3]){
-      jug.vel_y = SPEED;
+      jug.vel_y = spd;
     }
     
     jug.move();
@@ -80,4 +81,16 @@ float prox_to_zero(float a, float b){
   } else{
     return min(0, a + b);
   }
+}
+
+
+float avg_speed(){
+  int[][] pos = jug.coords(jug.x, jug.y);
+  float spd = 0;
+  for (int i = 0; i < pos.length; i++){
+    spd += jue.ts.tiles[jue.grilla[pos[i][0]][pos[i][1]]].speed * SPEED / 2;
+  }
+  return spd / 4;
+  
+  
 }
