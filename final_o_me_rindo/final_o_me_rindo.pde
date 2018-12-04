@@ -3,6 +3,8 @@ import controlP5.*;
 
 String nivel_actual;
 
+PImage F;
+
 ControlP5 cp5;
 Button but1;  // resetear nivel
 Button but2;  // volver al nivel
@@ -18,7 +20,7 @@ CallbackListener cb4;
 CallbackListener cb5;
 CallbackListener cb6;
 
-String title = "Dungeon Builder"; // título provisional
+String title = "Press F to Pay Respects"; // título provisional
 
 boolean paused = true;
 boolean win = false;
@@ -41,6 +43,7 @@ void setup(){
   // no funciona con los distintos modos de renderizado de imágenes y demás :face_palm:
   //noStroke();
   textSize(40);
+  F = loadImage("assets/carátula.jpg");
   tile = min(width / SCR_W, height / SCR_H);
   TAM = tile / OTILE * OCHARA;
   
@@ -116,19 +119,19 @@ void setup(){
   
   but4 = new Button(cp5, "level 2");
   but4.setValue(3);
-  but4.setPosition(width/2 - (int) (1.5 * tile), height / 2 + tile);
+  but4.setPosition(width/2 - (int) (1.5 * tile), height / 2 + tile + H_TILES/3);
   but4.setSize(3 * tile, tile);
   but4.addCallback(cb4);
   
   but5 = new Button(cp5, "level 3");
   but5.setValue(4);
-  but5.setPosition(width/2 - (int) (1.5 * tile), height / 2 + 2 * tile);
+  but5.setPosition(width/2 - (int) (1.5 * tile), height / 2 + 2 * tile + 2 * H_TILES/3);
   but5.setSize(3 * tile, tile);
   but5.addCallback(cb5);
   
   but6 = new Button(cp5, "salir");
   but6.setValue(5);
-  but6.setPosition(width/2 - (int) (1.5 * tile), height / 2 + 3 * tile);
+  but6.setPosition(width/2 - (int) (1.5 * tile), height / 2 + 3 * tile + 3 * H_TILES/3);
   but6.setSize(3 * tile, tile);
   but6.addCallback(cb6);
   
@@ -149,8 +152,9 @@ void setup(){
 void draw(){
   background(0);
   if (screen == 0){
+    image(F, 0, 0, width, height);
     fill(255);
-    text(title, width / 3, height / 4);
+    text(title, width / 4, height / 4);
   } else if (screen == 1){
     update();
     jue.draw();
