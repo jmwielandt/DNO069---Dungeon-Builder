@@ -9,7 +9,6 @@ class Jugador extends HitBox
   Jugador(int x, int y, int w, int h)
   {
     super(x * tile, y * tile, w, h);
-    println(tile);
     JSONObject aux = loadJSONObject("chara.json");
     this.mod = FRAMES / 2;
     JSONArray daux = aux.getJSONArray("up");

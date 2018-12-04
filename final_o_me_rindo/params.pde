@@ -8,6 +8,7 @@ int SCR_W = 16;  // por ahora y quizás hasta siempre
 int SCR_H = H_TILES;
 int FRAMES = 60;
 
+int[] init = {5, 4};
 
 int TAM = 30;
 float SPEED = 5;
@@ -15,7 +16,12 @@ float ROCE = 0.5;
 float ROCE_h = 0.1;
 int HIELO = 3;
 
+int VOID_BLOCK = 8;
 
-String PRIMER_NIVEL = "mapas/map2.json";
+int MAXLENCOLABLOQUES = 5;
+
+
+String PRIMER_NIVEL = "mapas/map1.json";
+String SEGUNDO_NIVEL = "mapas/map2.json";
 
 // https://twitter.com/kusasugiruneko/status/1068803173102497792

@@ -5,7 +5,8 @@
 		"colide": true,
 		"frames": ["agua1.png", "agua2.png"],
 		"breakable": false,
-		"reemplazable": false
+		"reemplazable": true, 
+        "speed": 0
 	},
 	{
 		"id": 1,
@@ -13,15 +14,17 @@
 		"colide": true,
 		"frames": ["bloquenormal1.png", "bloquenormal2.png"],
 		"breakable": true,
-		"reemplazable": false
+		"reemplazable": false, 
+        "speed": 0
 	},
 	{
 		"id": 2,
 		"name": "fuego",
-		"colide": false,
+		"colide": true,
 		"frames": ["fuego1.png", "fuego2.png"],
 		"breakable": false,
-		"reemplazable": false
+		"reemplazable": true,
+        "speed": 2
 	},
 	{
 		"id": 3,
@@ -30,7 +33,8 @@
 		"roce": 0.2,
 		"frames": ["hielo1.png", "hielo2.png"],
 		"breakable": false,
-		"reemplazable": false
+		"reemplazable": false,
+        "speed": 2
 	},
 	{
 		"id": 4,
@@ -38,7 +42,8 @@
 		"colide": true,
 		"frames": ["inamovible1.png", "inamovible2.png"],
 		"breakable": false,
-		"reemplazable": false
+		"reemplazable": false,
+        "speed": 0
 	},
 	{
 		"id": 5,
@@ -46,7 +51,8 @@
 		"colide": false,
 		"frames": ["pisoazul.png"],
 		"breakable": false,
-		"reemplazable": true
+		"reemplazable": true,
+        "speed": 2
 	},
 	{
 		"id": 6,
@@ -54,7 +60,8 @@
 		"colide": false,
 		"frames": ["pisorojo.png"],
 		"breakable": false,
-		"reemplazable": true
+		"reemplazable": true,
+        "speed": 2
 	},
 	{
 		"id": 7,
@@ -62,6 +69,43 @@
 		"colide": false,
 		"frames": ["pisoverde.png"],
 		"breakable": false,
-		"reemplazable": true
-	}
+		"reemplazable": true,
+        "speed": 2
+	},
+    {
+        "id": 8,
+        "name": "the void",
+        "colide": false,
+        "frames": ["the_void.png"],
+        "breakable": false,
+        "reemplazable": false,
+        "speed": 0
+    },
+    {
+        "id": 9,
+        "name": "pinchos",
+        "colide": true,
+        "frames": ["pinchos1.png", "pinchos2.png"],
+        "breakable": false,
+        "reemplazable": true,
+        "speed": 2
+    },
+    {
+        "id": 10,
+        "name": "fast food",
+        "colide": false,
+        "frames": ["fast1.png", "fast2.png"],
+        "breakable": false,
+        "reemplazable": false,
+        "speed": 3
+    },
+    {
+        "id": 11,
+        "name": "chilean fast food",
+        "colide": false,
+        "frames": ["slow1.png", "slow2.png"],
+        "breakable": false,
+        "reemplazable": false,
+        "speed": 1
+    }
 ]

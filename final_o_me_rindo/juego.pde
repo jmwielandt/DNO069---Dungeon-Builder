@@ -4,8 +4,8 @@ class Juego extends Mapa{
   boolean[] kp = {false, false, false, false, false};
   // izquierda, derecha, arriba, abajo
   
-  Juego(int w, int h){
-    super(w, h);
+  Juego(int w, int h, String mapa){
+    super(w, h, mapa);
   }
   
   void cope(boolean state){
@@ -20,9 +20,16 @@ class Juego extends Mapa{
     int aux = this.grilla[x][y];
     if (this.kp[4]){
       // colocar
+      if (this.ts.tiles[aux].reemplazable && this.cola.get() != VOID_BLOCK){
+        this.grilla[x][y] = this.cola.pop();
+      }
       
     } else{
       // romper
+      if (this.ts.tiles[aux].breakable){
+        this.cola.push(this.grilla[x][y]);
+        this.grilla[x][y] = this.piso;
+      }
     }
   }
   
@@ -36,14 +43,16 @@ class Mapa{
   int h;
   Tileset ts;
   int piso;
+  Cola cola;
   
-  Mapa(int w, int h){
+  Mapa(int w, int h, String mapa){
     this.ts = new Tileset();
     this.w = w;
     this.h = h;
     this.grilla = new int[w][h];
-    JSONObject aux = loadJSONObject(PRIMER_NIVEL);
+    JSONObject aux = loadJSONObject(mapa);
     this.piso = aux.getInt("floor");
+    this.cola = new Cola(aux.getJSONArray("bloques"));
     JSONArray g = aux.getJSONArray("layout");
     for (int i = 0; i < w; i++){
       JSONArray g2 = g.getJSONArray(i);
@@ -74,6 +83,7 @@ class Mapa{
         this.ts.tiles[this.grilla[i][j]].draw(i, j);
       }
     }
+    this.ts.tiles[this.cola.get()].draw(14, 7);
   }
 }
 
