@@ -34,7 +34,7 @@ Jugador jug;
 
 
 void settings(){
-  fullScreen();
+  //fullScreen();
   size(SCR_W * tile, SCR_H * tile, P2D);  
 }
 
@@ -46,7 +46,7 @@ void setup(){
   //noStroke();
   textSize(40);
   victoria = loadImage("assets/victoria.png");
-  F = loadImage("assets/carátula.jpg");
+  F = loadImage("assets/portadislime.png");
   tile = min(width / SCR_W, height / SCR_H);
   TAM = tile / OTILE * OCHARA;
   
@@ -155,9 +155,9 @@ void setup(){
 void draw(){
   background(0);
   if (screen == 0){
-    image(F, 0, 0, width, height);
-    fill(255);
-    text(title, width / 4, height / 4);
+    image(F, 6 * tile, 2 * tile, 4 * tile, 3 * tile);
+    //fill(255);
+    //text(title, width / 4, height / 4);
   } else if (screen == 1){
     update();
     jue.draw();

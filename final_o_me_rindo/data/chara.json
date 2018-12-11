@@ -1,8 +1,0 @@
-{
-	"name": "chara",
-	"class": "slime",
-	"up": ["assets/chara/slimeback1.png", "assets/chara/slimeback2.png"],
-	"down": ["assets/chara/slimefront1.png", "assets/chara/slimefront2.png"],
-	"left": ["assets/chara/slimeleft1.png", "assets/chara/slimeleft2.png"],
-	"right": ["assets/chara/slimeright1.png", "assets/chara/slimeright2.png"]
-}

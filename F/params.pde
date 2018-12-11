@@ -22,8 +22,8 @@ int VOID_BLOCK = 8;
 int MAXLENCOLABLOQUES = 5;
 
 
-String PRIMER_NIVEL = "mapas/map1.json";
-String SEGUNDO_NIVEL = "mapas/map2.json";
-String TERCER_NIVEL = "mapas/map3.json";
+String PRIMER_NIVEL = "mapas/map4.json";
+String SEGUNDO_NIVEL = "mapas/map5.json";
+String TERCER_NIVEL = "mapas/map6.json";
 
 // https://twitter.com/kusasugiruneko/status/1068803173102497792
